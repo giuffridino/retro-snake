@@ -5,30 +5,45 @@
 #include <raylib.h>
 #include "Snake.h"
 #include "Food.h"
+#include "GameStateMachine.h"
+
+// class GameStateMachine;
 
 class Game
 {
 public:
-    Game();
     ~Game();
+    static Game* Instance(void)
+	{
+		if (s_pInstance == nullptr)
+		{
+			s_pInstance = new Game();
+		}
+		return s_pInstance;
+	}
 
     Snake m_snake = Snake();
     Food m_food = Food();
 
     void draw();
     void update();
-    void checkSnakeFoodCollision();
+    // void checkSnakeFoodCollision();
 
-    void setRunning(bool running);
+    // void setRunning(bool running);
     int getHighScore();
-    void updateHighScore();
+    void updateHighScore(int score);
 
-    void gameOver();
+    // void gameOver();
+    GameStateMachine* getGameStateMachine(void) { return m_pGameStateMachine; }
 
 private:
-    bool m_bRunning = true;
+    Game(void);
+    static Game* s_pInstance;
+
+    GameStateMachine* m_pGameStateMachine;
     int m_highScore = 0;
-    Music m_music;
 };
+
+typedef Game TheGame;
 
 #endif // __Game__
