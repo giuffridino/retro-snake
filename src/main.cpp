@@ -46,7 +46,7 @@ int main()
         // game.draw();
         TheGame::Instance()->update();
         TheGame::Instance()->draw();
-        DrawFPS(GetScreenWidth() - 95, 10);
+        // DrawFPS(GetScreenWidth() - 95, 10);
         EndDrawing();
     }
     
