@@ -2,6 +2,7 @@
 #include "raymath.h"
 #include "GameStateMachine.h"
 #include "PlayState.h"
+#include "MainMenuState.h"
 #include <iostream>
 
 Game *Game::s_pInstance = nullptr;
@@ -10,7 +11,8 @@ Game::Game()
 {
     // m_food.placeFoodInRandomPos(m_snake.getSnakeBody());
     m_pGameStateMachine = new GameStateMachine();
-	m_pGameStateMachine->changeState(new PlayState());
+	// m_pGameStateMachine->changeState(new PlayState());
+	m_pGameStateMachine->changeState(new MainMenuState());
 }
 
 Game::~Game()

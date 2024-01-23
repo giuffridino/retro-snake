@@ -26,11 +26,13 @@ private:
 	static void s_menuToPlay();
 	static void s_exitFromMenu();
 
-	// static GameState *s_pTransitionState;
-
     static const std::string s_mainMenuID;
 
-	// std::vector<GameObject*> m_gameObjects;
+	int m_textCounter = 0;
+	int m_displ = 0;
+	int m_textPosX;
+	int m_textPosY;
+
 };
 
 #endif /* defined(__MainMenuState__) */

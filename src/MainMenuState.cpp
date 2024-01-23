@@ -2,55 +2,43 @@
     #include "PlayState.h"
     #include "Game.h"
     #include <iostream>
-    // #include "MenuButton.h"
-    // #include "GameObject.h"
-    // #include "TextureManager.h"
-    // #include "LoaderParams.h"
-    // #include "StateParser.h"
 
     const std::string MainMenuState::s_mainMenuID = "MENU";
 
     void MainMenuState::update()
     {
-        // std::cout << "MainMenuState::update()\n";
-        // if (m_bLoadingComplete && !m_gameObjects.empty())
-        // {
-        //     for (int i = 0; i < m_gameObjects.size(); i++)
-        //     {
-        //         if (m_gameObjects[i])
-        //         {
-        //             m_gameObjects[i]->update();
-        //         }
-        //     }
-        // }
+        if(IsKeyDown(KEY_ENTER))
+        {
+            TheGame::Instance()->getGameStateMachine()->changeState(new PlayState());
+        }
+        m_textCounter++;
     }
 
     void MainMenuState::render()
     {
-        // std::cout << "MainMenuState::render()\n";
-        // if (m_bLoadingComplete && !m_gameObjects.empty())
-        // {
-        //     for (int i = 0; i < m_gameObjects.size(); i++)
-        //     {
-        //         if (m_gameObjects[i])
-        //         {
-        //             std::cout << "Trying to draw m_gameObjects[i] in MainMenuStateRender()\n";
-        //             m_gameObjects[i]->draw();
-        //         }
-        //     }
-        // }
+        if (m_textCounter % 15 == 0)
+        {
+            m_textCounter = 0;
+            if (m_displ == 0)
+            {
+                m_displ = 5;
+            }
+            else
+            {
+                m_displ = 0;
+            }
+        }
+        
+        DrawText("RETRO-SNAKE!", m_textPosX + m_displ, m_textPosY, 80, darkGreen);
+        DrawText("Press Enter to play", m_textPosX + 50, m_textPosY + 100, 50, darkGreen);
+        DrawText("Toggle fullscreen for optimal experience", m_textPosX, m_textPosY + 200, 30, darkGreen);
     }
 
     bool MainMenuState::onEnter()
     {
-        // StateParser stateParser;
-        // stateParser.parseState("src/assets/attack.xml", s_mainMenuID, &m_gameObjects, &m_textureIDs);
-        // m_callbacks.push_back(0);
-        // m_callbacks.push_back(s_menuToPlay);
-        // m_callbacks.push_back(s_exitFromMenu);
-        // setCallbacks(m_callbacks);
-        // m_bLoadingComplete = true;
-        // std::cout << "Entering MainMenuState\n";
+        m_textPosX = (2*Constants::offsetBorder + Constants::frameWidthHeight)/5 - 40;
+        m_textPosY = (2*Constants::offsetBorder + Constants::frameWidthHeight)/4;
+        m_bLoadingComplete = true;
         return true;
     }
 
