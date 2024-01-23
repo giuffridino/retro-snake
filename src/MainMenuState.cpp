@@ -31,7 +31,8 @@
         
         DrawText("RETRO-SNAKE!", m_textPosX + m_displ, m_textPosY, 80, darkGreen);
         DrawText("Press Enter to play", m_textPosX + 50, m_textPosY + 100, 50, darkGreen);
-        DrawText("Toggle fullscreen for optimal experience", m_textPosX, m_textPosY + 200, 30, darkGreen);
+        DrawText("Toggle fullscreen and sound (resume)", m_textPosX + 25, m_textPosY + 200, 30, darkGreen);
+        DrawText("for optimal experience", m_textPosX + 155, m_textPosY + 250, 30, darkGreen);
     }
 
     bool MainMenuState::onEnter()
