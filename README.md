@@ -1,4 +1,5 @@
 # Retro-Snake
+Play the web version: [Retro-Snake](https://giuffridino.github.io/retro-snake/)
 First game completed using the RayLib library. 
 
 It's a simple setup, but it allowed me to apply key game logic features such as:
