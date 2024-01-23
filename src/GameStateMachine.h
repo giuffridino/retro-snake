@@ -18,7 +18,7 @@ public:
 
 private:
     std::vector<GameState*> m_gameStates;
-    GameState *m_transitionState;
+    // GameState *m_transitionState;
 };
 
 #endif /* defined(__GameStateMachine__) */

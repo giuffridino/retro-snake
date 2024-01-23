@@ -19,7 +19,7 @@ bool eventTriggered(double interval)
 int main()
 {
     std::cout << "Starting the game...\n";
-    InitWindow(2* Constants::offsetBorder + Constants::frameWidthHeight, 2* Constants::offsetBorder + Constants::frameWidthHeight, "Snake");
+    InitWindow(2 * Constants::offsetBorder + Constants::frameWidthHeight, 2 * Constants::offsetBorder + Constants::frameWidthHeight, "Snake");
     InitAudioDevice();
     Music music = LoadMusicStream("assets/kim-lightyear-leave-the-world-tonight-chiptune-edit-loop-132102.mp3");
     music.looping = true;
